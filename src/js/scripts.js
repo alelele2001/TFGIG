@@ -4,7 +4,42 @@ import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls.js';
 
 
 /*Inicialización creación render , camera ,etc*/ 
+const axesHelper = new THREE.AxesHelper(300);
+let axis = false;
+const axisBtn = document.getElementById("axisBtn");
+const upView = document.getElementById("upView");
+axisBtn.addEventListener("click", function(){
+    if(axis){
+        axis = false;
+        scene.remove(axesHelper);
+    }
+    else{
+        scene.add(axesHelper);
+        axis = true;
 
+    }
+    
+    //console.log("la funcion se llamó");
+});
+
+upView.addEventListener("click", function(){
+    camera.position.set(0,50,0);
+    camera.lookAt(0,0,0);
+    
+    //console.log("la funcion se llamó");
+});
+frontView.addEventListener("click", function(){
+    camera.position.set(0,0,50);
+    camera.lookAt(0,0,0);
+    
+    //console.log("la funcion se llamó");
+});
+downView.addEventListener("click", function(){
+    camera.position.set(0,-50,0);
+    camera.lookAt(0,0,0);
+    
+    //console.log("la funcion se llamó");
+});
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -36,10 +71,12 @@ spotLight.position.set(-100,100,0);
 spotLight.castShadow = true;
 spotLight.angle = 0.2;
 const sLightHelper = new THREE.SpotLightHelper(spotLight);
-scene.add(sLightHelper);
+//scene.add(sLightHelper);
 
 
 function animate(){
     renderer.render(scene,camera);
 }
+
+
 renderer.setAnimationLoop(animate);

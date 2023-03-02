@@ -60,6 +60,23 @@
   padding-bottom: 5px;
 }
 
+.container .menu button {
+  color: #000;
+  border: 2px solid #0000;
+  margin-right: 5px;
+  padding: 15px;
+  font-size: 15px;
+  line-height: normal;
+  text-decoration: none;
+  transition: all .3s;
+  display: inline-block;
+}
+
+.container .menu button:hover {
+  border-bottom: 2px solid #c7c7c7;
+  padding-bottom: 5px;
+}
+
 #btn-menu {
   display: none;
 }
